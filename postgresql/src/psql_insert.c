@@ -1,10 +1,12 @@
+#include <stdio.h>
+
 #include "psql_connect.h"
 
 void insert_temperature(const float temperature)
 {
     PGconn *conn = connect();
     char *statement = NULL;
-    
+
     asprintf(&statement, "INSERT INTO temperature(ts,value) VALUES(current_timestamp,%d", temperature);
     PGresult *res = PQexec(conn, statement);
 
