@@ -52,7 +52,7 @@ def main():
     try:
         brightness = readLight()
         print "Light Level : " + str(brightness) + " lx"
-        curs.execute ("INSERT INTO brightness (date, time, value) VALUES (CURRENT_DATE(), NOW(), %.2f);" % brightness)
+        curs.execute ("INSERT INTO brightness (value) VALUES (%.2f);" % brightness)
         db.commit()
         print("Done")
     except:

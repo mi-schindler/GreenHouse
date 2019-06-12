@@ -9,8 +9,8 @@ curs=db.cursor()
 
 try:
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-    curs.execute ("INSERT INTO temperature (date, time, value) VALUES (CURRENT_DATE(), NOW(), %.2f);" % temperature)
-    curs.execute ("INSERT INTO humidity (date, time, value) VALUES (CURRENT_DATE(), NOW(), %.2f);" % humidity)
+    curs.execute ("INSERT INTO temperature (value) VALUES (%.2f);" % temperature)
+    curs.execute ("INSERT INTO humidity (value) VALUES (%.2f);" % humidity)
     db.commit()
     print("Done")
 except:
