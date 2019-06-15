@@ -13,12 +13,14 @@ import { TemperatureChartComponent } from './temperature-chart/temperature-chart
 import { HumidityChartComponent } from './humidity-chart/humidity-chart.component';
 import { BrightnessChartComponent } from './brightness-chart/brightness-chart.component';
 import { LoggingComponent } from './logging/logging.component';
+import { InfoComponent } from './info/info.component';
 
 const appRoutes: Routes = [
+  { path: 'info', component: InfoComponent },
   { path: 'values', component: ValuesComponent },
   { path: 'log',      component: LoggingComponent },
   { path: '',
-    redirectTo: '/values',
+    redirectTo: '/info',
     pathMatch: 'full'
   }
 ];
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     TemperatureChartComponent,
     HumidityChartComponent,
     BrightnessChartComponent,
-    LoggingComponent
+    LoggingComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

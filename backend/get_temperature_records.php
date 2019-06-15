@@ -5,7 +5,7 @@
 require 'database.php';
 
 $temp_records = [];
-$sql = "SELECT id, timestamp, value FROM temperature";
+$sql = "SELECT id, timestamp, value FROM temperature WHERE timestamp >= NOW() - INTERVAL 1 DAY";
 
 if($result = mysqli_query($con,$sql))
 {

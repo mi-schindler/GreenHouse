@@ -5,7 +5,7 @@
 require 'database.php';
 
 $hum_records = [];
-$sql = "SELECT id, timestamp, value FROM humidity";
+$sql = "SELECT id, timestamp, value FROM humidity WHERE timestamp >= NOW() - INTERVAL 1 DAY";
 
 if($result = mysqli_query($con,$sql))
 {

@@ -1,28 +1,27 @@
 /* grid layout, 3 columns */
 .wrapper {
-    display: grid; /* display: inline-grid;*/
-    grid-template-columns: 1fr 1fr 1fr; /* 3 x 1 fraction */    
-    grid-gap: 25px;
+  display: grid; /* display: inline-grid;*/
+  grid-template-columns: 1fr 1fr 1fr; /* 3 x 1 fraction */    
+  grid-gap: 25px;
 }
 
 .temp {
-    /* starts at col pos 1, spans 2 cols */
-    grid-column: 1 / span 1;
-    /* starts at row pos 1, spans 1 row */
-    /*grid-row: 1 / span 1;*/
-  }
-  
+  /* starts at col pos 1, spans 2 cols */
+  grid-column: 1 / span 1;
+  /* starts at row pos 1, spans 1 row */
+  /*grid-row: 1 / span 1;*/
+}
 
-  .hum {
-    /* starts at col pos 1, spans 2 cols */
-    grid-column: 2 / span 1;
-    /* starts at row pos 1, spans 1 row */
-    /*grid-row: 1 / span 1;*/
-  }
+.hum {
+  /* starts at col pos 1, spans 2 cols */
+  grid-column: 2 / span 1;
+  /* starts at row pos 1, spans 1 row */
+  /*grid-row: 1 / span 1;*/
+}
 
-  .bright {
-    /* starts at col pos 1, spans 2 cols */
-    grid-column: 3 / span 1;
-    /* starts at row pos 1, spans 1 row */
-    /*grid-row: 1 / span 1;*/
-  }
+.bright {
+  /* starts at col pos 1, spans 2 cols */
+  grid-column: 3 / span 1;
+  /* starts at row pos 1, spans 1 row */
+  /*grid-row: 1 / span 1;*/
+}
