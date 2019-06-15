@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { DataService } from '../data.service';
+import { Policy } from  '../policy';
 
 @Component({
   selector: 'app-brightness-chart',
@@ -12,7 +14,9 @@ export class BrightnessChartComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [
     { data: [350, 500, 1020, 2200, 3120, 2800, 2600], label: 'Helligkeit' },
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  policies:  Policy[];
+
+  //public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -26,9 +30,19 @@ export class BrightnessChartComponent implements OnInit {
   public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
 
   ngOnInit() {
+    this.dataService.readBrightnessData().subscribe((policies: Policy[])=>{
+      this.policies = policies;
+
+      var arr:number[] = new Array(policies.length);
+      for(var i = 0; i < policies.length; i++) {
+        arr[i] = policies[i].value;
+      }
+
+      this.lineChartData = [{data: arr, label: 'Helligkeit in lux'}];
+    })
   }
 
 }

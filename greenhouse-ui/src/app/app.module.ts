@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ValuesComponent } from './values/values.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { ChartsModule } from 'ng2-charts';
 import { TemperatureChartComponent } from './temperature-chart/temperature-chart.component';
 import { HumidityChartComponent } from './humidity-chart/humidity-chart.component';
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
