@@ -37,16 +37,21 @@ export class TemperatureChartComponent implements OnInit {
     this.dataService.readTemperatureData().subscribe((policies: Policy[])=>{
       this.policies = policies;
       var valArr:number[] = new Array(policies.length);
-      var lblArr:string[] = new Array(policies.length);
+      var lblCount:number = 0;
 
       for(var i = 0; i < policies.length; i++) {
         valArr[i] = policies[i].value;
-        lblArr[i] = policies[i].timestamp.toString();
+        
+        if(lblCount == 0) {
+          this.lineChartLabels.push(policies[i].timestamp.toString());
+          lblCount = 5;
+        }
+        else {
+          lblCount--;
+        }
       }
 
       this.lineChartData = [{data: valArr, label: 'Temperatur in °C'}];
-      this.lineChartLabels = lblArr;
     })
   }
-
 }

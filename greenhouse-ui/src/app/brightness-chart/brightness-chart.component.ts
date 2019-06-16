@@ -16,7 +16,6 @@ export class BrightnessChartComponent implements OnInit {
   ];
   policies:  Policy[];
 
-  //public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChartLabels: Label[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
@@ -37,15 +36,21 @@ export class BrightnessChartComponent implements OnInit {
     this.dataService.readBrightnessData().subscribe((policies: Policy[])=>{
       this.policies = policies;
       var valArr:number[] = new Array(policies.length);
-      var lblArr:string[] = new Array(policies.length);
+      var lblCount:number = 0;
 
       for(var i = 0; i < policies.length; i++) {
         valArr[i] = policies[i].value;
-        lblArr[i] = policies[i].timestamp.toString();
+        
+        if(lblCount == 0) {
+          this.lineChartLabels.push(policies[i].timestamp.toString());
+          lblCount = 5;
+        }
+        else {
+          lblCount--;
+        }
       }
-
+      
       this.lineChartData = [{data: valArr, label: 'Helligkeit in lux'}];
-      this.lineChartLabels = lblArr;
     })
   }
 
