@@ -1,11 +1,3 @@
-/* grid layout, 3 columns */
-.wrapper {
-    display: grid; /* display: inline-grid;*/
-    grid-template-columns: 1fr 5fr; /* 3 x 2 fraction */  
-    grid-template-rows: 3fr 1fr 7fr;  
-    grid-column-gap: 25px;
-}
-
 .header {
     /* starts at col pos 1, spans 2 cols */
     grid-column: 2 / span 1;

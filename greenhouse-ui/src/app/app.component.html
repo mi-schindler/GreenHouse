@@ -1,21 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:left">
-  <div class="wrapper">
-    <div class="header">
-      <h1>{{title}}</h1>
-    </div>
-    <div class="pic">
-      <img alt="Greenhouse Logo" src="../assets/greenhouse_logo.png">
-    </div>
-    <div class="nav">
-        <nav>
-            <a routerLink="/info" routerLinkActive="active">Info</a>
-            <a routerLink="/values" routerLinkActive="active">Messwerte</a>
-            <a routerLink="/log" routerLinkActive="active">Logging</a>
-        </nav>
-    </div>
-    <div class="content">
-        <router-outlet></router-outlet>     
-    </div>
+  <div class="header">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="pic">
+    <img alt="Greenhouse Logo" src="../assets/greenhouse_logo.png">
+  </div>
+  <div class="nav">
+      <nav>
+          <a routerLink="/info" routerLinkActive="active">Info</a>
+          <a routerLink="/values" routerLinkActive="active">Messwerte</a>
+          <a routerLink="/log" routerLinkActive="active">Logging</a>
+      </nav>
+  </div>
+  <div class="content">
+      <router-outlet></router-outlet>     
   </div>
 </div>
