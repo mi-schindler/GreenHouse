@@ -5,7 +5,7 @@ import log
 
 sensor = Adafruit_DHT.AM2302
 pin = 4
-db = MySQLdb.connect("localhost", "root", "passwort", "greenhouse_db")
+db = MySQLdb.connect("localhost", "greenhouse", "green", "greenhouse_db")
 curs=db.cursor()
 
 try:

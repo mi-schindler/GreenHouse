@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import MySQLdb
 
-db = MySQLdb.connect("localhost", "root", "passwort", "greenhouse_db")
+db = MySQLdb.connect("localhost", "greenhouse", "green", "greenhouse_db")
 curs=db.cursor()
 
 def write_log(message):

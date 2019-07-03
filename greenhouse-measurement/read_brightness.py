@@ -4,7 +4,7 @@ import time
 import MySQLdb
 import log
 
-db = MySQLdb.connect("localhost", "root", "passwort", "greenhouse_db")
+db = MySQLdb.connect("localhost", "greenhouse", "green", "greenhouse_db")
 curs=db.cursor()
 
 # Constants taken from the datasheet
