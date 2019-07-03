@@ -2,6 +2,7 @@
 import smbus
 import time
 import MySQLdb
+import log
 
 db = MySQLdb.connect("localhost", "root", "passwort", "greenhouse_db")
 curs=db.cursor()
@@ -54,10 +55,12 @@ def main():
         print "Light Level : " + str(brightness) + " lx"
         curs.execute ("INSERT INTO brightness (value) VALUES (%.2f);" % brightness)
         db.commit()
+        write_log("read brightness value " + str(brightness))
         print("Done")
     except:
         print("Error. Rolling back.")
         db.rollback()
+        write_error("read brightness value failed")
 
 if __name__=="__main__":
    main()
