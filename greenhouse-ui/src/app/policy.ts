@@ -3,3 +3,9 @@ export  class  Policy {
     timestamp:  number;
     value:  number;
 }
+
+export class LogPolicy {
+    id: number;
+    timestamp: number;
+    message: string;
+}

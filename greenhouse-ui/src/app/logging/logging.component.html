@@ -1,3 +1,24 @@
-<p>
-  logging works!
-</p>
+<h2>Info Meldungen</h2>
+<table>
+    <thead>
+        <th>Zeitstempel</th>
+        <th>Meldung</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let message of log_messages">
+            <td>{{message.timestamp}}</td>
+            <td>{{message.message}}</td>
+        </tr>
+    </tbody>
+</table>
+<h2>Fehler Meldungen</h2>
+<thead>
+    <th>Zeitstempel</th>
+    <th>Meldung</th>
+</thead>
+<tbody>
+    <tr *ngFor="let message of error_messages">
+        <td>{{message.timestamp}}</td>
+        <td>{{message.message}}</td>
+    </tr>
+</tbody>

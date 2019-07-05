@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { LogPolicy } from  '../policy';
 
 @Component({
   selector: 'app-logging',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoggingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
+
+  log_messages: LogPolicy[];
+  error_messages: LogPolicy[];
 
   ngOnInit() {
+    this.dataService.readLogData().subscribe((log_messages: LogPolicy[])=>{
+      this.log_messages = log_messages;
+    })
+    this.dataService.readErrorData().subscribe((error_messages: LogPolicy[])=>{
+      this.error_messages = error_messages;
+    })
   }
 
 }
