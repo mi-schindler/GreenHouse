@@ -55,7 +55,7 @@ def main():
         print "Light Level : " + str(brightness) + " lx"
         curs.execute ("INSERT INTO brightness (value) VALUES (%.2f);" % brightness)
         db.commit()
-        write_log("read brightness value " + str(brightness))
+        write_log("read brightness value " + str(brightness) + "lx")
         print("Done")
     except:
         print("Error. Rolling back.")

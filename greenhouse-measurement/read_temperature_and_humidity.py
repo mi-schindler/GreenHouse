@@ -13,7 +13,7 @@ try:
     curs.execute ("INSERT INTO temperature (value) VALUES (%.2f);" % temperature)
     curs.execute ("INSERT INTO humidity (value) VALUES (%.2f);" % humidity)
     db.commit()
-    write_log("read temperature value " + str(temperature) + " and humidity value " + str(humidity))
+    write_log("read temperature value " + str(temperature) + "°C and humidity value " + str(humidity) + "%")
     print("Done")
 except:
     print("Error. Rolling back.")

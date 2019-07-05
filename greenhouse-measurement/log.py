@@ -6,7 +6,8 @@ curs=db.cursor()
 
 def write_log(message):
     try:
-        curs.execute ("INSERT INTO log_message (message) VALUES (%s);" % message)
+        sql="INSERT INTO log_message (message) VALUES ('" + message + "');"
+        curs.execute (sql)
         db.commit()
         print("Done")
     except:
@@ -16,7 +17,8 @@ def write_log(message):
 
 def write_error(message):
     try:
-        curs.execute ("INSERT INTO error_message (message) VALUES (%s);" % message)
+        sql="INSERT INTO error_message (message) VALUES ('" + message + "');"
+        curs.execute (sql)
         db.commit()
         print("Done")
     except:
